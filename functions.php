@@ -1,5 +1,14 @@
 <?php // Functions
 
+/*
+Notes
+
+Loading template from parent theme
+
+load_template( TEMPLATEPATH. '/index.php');
+*/
+
+
 
 
 
