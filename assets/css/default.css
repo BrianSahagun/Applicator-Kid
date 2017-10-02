@@ -277,7 +277,7 @@
     transition-property: opacity;
 }
 
-.applicator--theme--main-header.apl--main-search--active .main-media-banner---g::before
+.applicator--theme--main-header.applicator--main-search--active .main-media-banner---g::before
 {
     opacity: .75;
 }
@@ -288,6 +288,12 @@
 .applicator--theme--main-header.main-logo--disabled .main-description
 {
     justify-content: center;
+}
+
+/* With Main Search */
+.applicator--theme--main-header.applicator--main-search .main-info---cr
+{
+    padding-left: var(--elem-dimension--md);
 }
 
 
