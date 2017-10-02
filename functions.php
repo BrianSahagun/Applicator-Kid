@@ -1,53 +1,77 @@
 <?php // Functions
 
-/*
-Notes
-
-Loading template from parent theme
-
-load_template( TEMPLATEPATH. '/index.php');
-*/
 
 
 
 
+function applicator_kid_default_styles_scripts() {
+        
+        
+    /* ------------ Applicator Styles (do not modify) ------------ */
+    wp_enqueue_style( 'applicator-style', get_template_directory_uri(). '/style.css' );
+    wp_enqueue_style( 'applicator-style--h5bp', get_template_directory_uri(). '/assets/css/h5bp.css' );
+    wp_enqueue_style( 'applicator-style--default', get_template_directory_uri(). '/assets/css/default.css' );
+    wp_enqueue_style( 'applicator-style--enhancements', get_template_directory_uri(). '/assets/css/enhancements.css' );
+    wp_enqueue_style( 'applicator-snapon--style', get_template_directory_uri(). '/snap-on/assets/css/applicator.css' );
+        
+    
+    /* ------------ Applicator Kid Styles ------------ */
+    wp_enqueue_style( 'applicator-kid-style', get_stylesheet_uri(), array( 'applicator-snapon--style' ) );
+    wp_enqueue_style( 'applicator-kid-style--default', get_theme_file_uri(). '/assets/css/default.css', array( 'applicator-kid-style' ) );
+
+}
+add_action( 'wp_enqueue_scripts', 'applicator_kid_default_styles_scripts', 0 );
 
 
-// HTML Classes
-function applicator_kid_html_classes() {
+
+
+
+function applicator_kid_css_class_names() {
+    
+    
+    // Variables
+    $applicator_theme_term = 'applicator--theme';
+
+    
+    // Array
+    $r = array(
+
+        // Themes
+        'avatar',
+        'caption',
+        'categories',
+        'comment-meta',
+        'comments-count-action',
+        'edit-action',
+        'entry-nav',
+        'excerpt',
+        'main-header',
+        'name-avatar',
+        'note',
+        'post',
+        'post-meta',
+        'private-post-title',
+        'quote',
+        'search-result',
+        'table',
+        'tags',
+
+        // Functionalities with Themes
+        'comments',
+        'main-nav',
+        'page-nav',
+
+        // Layout
+        'container-width',
+        'layout',
+    );
+    
 
     // Echo
     echo ' ' . 'applicator-kid';
+    
+    foreach ( ( array ) $r as $css_class_name ) {
+        echo ' '. $applicator_theme_term. '--'. $css_class_name;
+    }
 }
-add_action( 'applicator_hook_html_class', 'applicator_kid_html_classes');
-
-
-
-
-
-// Styles
-function applicator_kid_styles() {
-    
-    // Styles - Applicator 
-    wp_enqueue_style( 'applicator-style', trailingslashit( get_template_directory_uri() ). 'style.css' );
-    
-    wp_enqueue_style( 'applicator-style--h5bp', trailingslashit( get_template_directory_uri() ). 'assets/css/h5bp.css' );
-    
-    wp_enqueue_style( 'applicator-style--default', trailingslashit( get_template_directory_uri() ). 'assets/css/default.css' );
-    
-    wp_enqueue_style( 'applicator-snapon--applicator-style', trailingslashit( get_template_directory_uri() ). 'snapons/applicator/assets/css/applicator.css' );
-    
-    
-    // Styles - Applicator Kid
-    wp_enqueue_style( 'applicator-kid-style', get_stylesheet_uri() );
-    
-    wp_enqueue_style( 'applicator-kid-style--default', trailingslashit( get_theme_file_uri() ). 'assets/css/default.css' );
-}
-add_action('wp_enqueue_scripts', 'applicator_kid_styles', 0);
-
-
-
-
-
-// Snap-ons
-// require_once trailingslashit( get_stylesheet_directory() ) . 'snapons/snapon-name/index.php';
+add_action( 'applicator_hook_html_class', 'applicator_kid_css_class_names');

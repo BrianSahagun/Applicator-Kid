@@ -1,1 +1,1 @@
-# Applicator-Kid
+# Applicator Kid
