@@ -4,6 +4,7 @@
 
 
 
+/* ------------------------ Styles and Scripts ------------------------ */
 function applicator_kid_default_styles_scripts() {
         
         
@@ -26,6 +27,7 @@ add_action( 'wp_enqueue_scripts', 'applicator_kid_default_styles_scripts', 0 );
 
 
 
+/* ------------------------ CSS Class Names ------------------------ */
 function applicator_kid_css_class_names() {
     
     
@@ -37,33 +39,7 @@ function applicator_kid_css_class_names() {
     $r = array(
 
         // Themes
-        'avatar',
-        'caption',
-        'categories',
-        'comment-meta',
-        'comments-count-action',
-        'edit-action',
-        'entry-nav',
-        'excerpt',
         'main-header',
-        'name-avatar',
-        'note',
-        'post',
-        'post-meta',
-        'private-post-title',
-        'quote',
-        'search-result',
-        'table',
-        'tags',
-
-        // Functionalities with Themes
-        'comments',
-        'main-nav',
-        'page-nav',
-
-        // Layout
-        'container-width',
-        'layout',
     );
     
 
