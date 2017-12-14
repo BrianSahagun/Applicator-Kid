@@ -4,7 +4,7 @@
 
 
 
-/* ------------------------ Styles and Scripts ------------------------ */
+/* ------------------------ Default Styles and Scripts ------------------------ */
 function applicator_kid_default_styles_scripts() {
         
         
@@ -17,7 +17,7 @@ function applicator_kid_default_styles_scripts() {
         
     
     /* ------------ Applicator Kid Styles ------------ */
-    wp_enqueue_style( 'applicator-kid-style', get_stylesheet_uri(), array( 'applicator-snapon--style' ) );
+    wp_enqueue_style( 'applicator-kid-style', get_stylesheet_uri(), array( 'applicator-style--default' ) );
     wp_enqueue_style( 'applicator-kid-style--default', get_theme_file_uri(). '/assets/css/default.css', array( 'applicator-kid-style' ) );
 
 }
@@ -30,24 +30,22 @@ add_action( 'wp_enqueue_scripts', 'applicator_kid_default_styles_scripts', 0 );
 /* ------------------------ CSS Class Names ------------------------ */
 function applicator_kid_css_class_names() {
     
-    
     // Variables
-    $applicator_theme_term = 'applicator--theme';
-
+    //$applicator_kid_name = '';
+    $applicator_kid_term = 'applicator-kid';
+    
     
     // Array
     $r = array(
-
-        // Themes
-        'main-header',
+        $applicator_kid_term,
+        //$applicator_kid_name. '--'. $applicator_kid_term,
     );
-    
 
-    // Echo
-    echo ' ' . 'applicator-kid';
     
+    // Echo
     foreach ( ( array ) $r as $css_class_name ) {
-        echo ' '. $applicator_theme_term. '--'. $css_class_name;
+        echo ' '. $css_class_name;
     }
+
 }
 add_action( 'applicator_hook_html_class', 'applicator_kid_css_class_names');
