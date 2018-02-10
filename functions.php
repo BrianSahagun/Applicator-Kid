@@ -12,10 +12,10 @@ $GLOBALS['applicator_kid_theme_name'] = 'Applicator Kid';
 
 
 // ------------------------ Default Styles and Scripts
-function applicator_kid_default_styles_scripts() {
+function applicator_kid_default_styles_scripts()
+{
         
-        
-    // ------------ Applicator Styles (do not modify)
+    // ------------------------------------ Applicator Styles
     wp_enqueue_style( 'applicator-style', get_template_directory_uri(). '/style.css' );
     wp_enqueue_style( 'applicator-style--h5bp', get_template_directory_uri(). '/assets/css/h5bp.css' );
     wp_enqueue_style( 'applicator-style--default', get_template_directory_uri(). '/assets/css/default.css' );
@@ -23,15 +23,9 @@ function applicator_kid_default_styles_scripts() {
     wp_enqueue_style( 'applicator-snapon--style', get_template_directory_uri(). '/snap-on/assets/css/applicator.css' );
         
     
-    // ------------ Applicator Kid Styles
+    // ------------------------------------ Applicator Kid Styles
     wp_enqueue_style( 'applicator-kid-style', get_stylesheet_uri(), array( 'applicator-style--default' ) );
-    wp_enqueue_style( 'applicator-kid-style--default', get_theme_file_uri(). '/assets/css/default.css', array( 'applicator-kid-style' ) );
-    
-    /* ------------ Scripts ------------ */
-		    
-    // Global
-    wp_enqueue_script( 'applicator-kid-script--global', get_theme_file_uri(). '/assets/js/global.js', array( 'jquery', 'applicator-script--global' ), '0.0.1', true );    
-    wp_enqueue_script( 'applicator-kid-flexslider', get_theme_file_uri(). '/assets/js/jquery.flexslider.js', array( 'jquery' ), '1.0', true );
+    wp_enqueue_style( 'applicator-kid-style--default', get_stylesheet_directory_uri(). '/assets/css/default.css', array( 'applicator-kid-style' ) );
 
 }
 add_action( 'wp_enqueue_scripts', 'applicator_kid_default_styles_scripts', 0 );
@@ -86,9 +80,7 @@ function applicator_copyright_applicator_line_url()
 
 // ------------------------  Snap-On
 $snap_on = get_stylesheet_directory(). '/snap-on/index.php';
-if ( file_exists( $snap_on ) ) { require_once( $snap_on ); }
-
-
-// ------------------------  DollhouseDiary.com Snap-On
-$dollhouse_diary_com_snap_on = get_stylesheet_directory(). '/snap-on-dollhouse-diary-com/index.php';
-if ( file_exists( $dollhouse_diary_com_snap_on ) ) { require_once( $dollhouse_diary_com_snap_on ); }
+if ( file_exists( $snap_on ) )
+{
+    require_once( $snap_on );
+}
